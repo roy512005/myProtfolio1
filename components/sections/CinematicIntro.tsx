@@ -85,7 +85,7 @@ export default function CinematicIntro() {
           transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <span style={{ WebkitTextStroke: '1px rgba(248,248,255,0.15)', color: 'transparent' }} className="block">
-            ANUPAM
+            ANIK
           </span>
           <span className="block gradient-text">ROY</span>
         </motion.h1>

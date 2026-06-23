@@ -111,7 +111,7 @@ export default function CollaborationNetwork() {
         ctx.setLineDash([]);
       });
 
-      // Draw center node (Anupam)
+      // Draw center node (Anik)
       const glow = ctx.createRadialGradient(CX, CY, 0, CX, CY, 30);
       glow.addColorStop(0, 'rgba(99,102,241,0.8)');
       glow.addColorStop(1, 'rgba(99,102,241,0)');
