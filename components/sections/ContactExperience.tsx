@@ -348,7 +348,7 @@ export default function ContactExperience() {
             <p className="text-sm text-[var(--color-text-subtle)] mb-4">Prefer direct contact?</p>
             <a
               id="contact-email-link"
-              href="mailto:anupamroy@example.com"
+              href="mailto:anupamroy.tech@gmail.com"
               className="inline-block text-h3 font-bold transition-all duration-300 hover:opacity-70"
               style={{
                 fontFamily: 'var(--font-syne)',
@@ -358,7 +358,7 @@ export default function ContactExperience() {
                 backgroundClip: 'text',
               }}
             >
-              anupamroy@example.com
+              anupamroy.tech@gmail.com
             </a>
 
             {/* Social Links */}

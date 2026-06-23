@@ -21,9 +21,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Anupam Roy — Frontend Architect & React Specialist',
+  title: 'Anik Roy — Frontend Architect & React Specialist',
   description:
-    'Anupam Roy is a world-class Frontend Developer specializing in React.js, Next.js, and TypeScript. Building the interfaces the internet remembers. Available for premium projects and strategic partnerships.',
+    'Anik Roy is a world-class Frontend Developer specializing in React.js, Next.js, and TypeScript. Building the interfaces the internet remembers. Available for premium projects and strategic partnerships.',
   keywords: [
     'Frontend Developer',
     'React Developer',
@@ -34,20 +34,20 @@ export const metadata: Metadata = {
     'Design Systems',
     'Freelance Frontend Developer',
   ],
-  authors: [{ name: 'Anupam Roy' }],
-  creator: 'Anupam Roy',
+  authors: [{ name: 'Anik Roy' }],
+  creator: 'Anik Roy',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    title: 'Anupam Roy — Frontend Architect',
+    title: 'Anik Roy — Frontend Architect',
     description: 'Building the interfaces the internet remembers.',
-    siteName: 'Anupam Roy Portfolio',
+    siteName: 'Anik Roy Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anupam Roy — Frontend Architect',
+    title: 'Anik Roy — Frontend Architect',
     description: 'Building the interfaces the internet remembers.',
-    creator: '@anupamroy',
+    creator: '@anikroy',
   },
   robots: {
     index: true,
