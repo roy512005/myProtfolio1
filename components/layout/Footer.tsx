@@ -21,14 +21,14 @@ export default function Footer() {
               A
             </div>
             <div>
-              <div className="font-bold text-sm" style={{ fontFamily: 'var(--font-syne)' }}>Anupam Roy</div>
+              <div className="font-bold text-sm" style={{ fontFamily: 'var(--font-syne)' }}>Anik Roy</div>
               <div className="text-xs text-[var(--color-text-muted)]">Frontend Architect</div>
             </div>
           </div>
 
           {/* Center */}
           <div className="text-xs text-[var(--color-text-subtle)] text-center">
-            © {year} Anupam Roy · Built with Next.js, Three.js & Framer Motion
+            © {year} Anik Roy · Built with Next.js, Three.js & Framer Motion
           </div>
 
           {/* Right */}
