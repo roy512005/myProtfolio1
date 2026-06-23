@@ -1,0 +1,412 @@
+@import 'tailwindcss';
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────────── */
+:root {
+  /* Background */
+  --color-bg: #050508;
+  --color-surface: #0D0D14;
+  --color-surface-2: #13131E;
+  --color-border: #1E1E2E;
+  --color-border-glow: rgba(99, 102, 241, 0.25);
+
+  /* Accent */
+  --color-accent: #6366F1;
+  --color-accent-hover: #818CF8;
+  --color-accent-gold: #F59E0B;
+  --color-accent-cyan: #06B6D4;
+  --color-accent-pink: #EC4899;
+  --color-accent-green: #10B981;
+
+  /* Text */
+  --color-text: #F8F8FF;
+  --color-text-muted: #6B7280;
+  --color-text-subtle: #374151;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6366F1 0%, #EC4899 100%);
+  --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #6366F1 100%);
+  --gradient-gold: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+
+  /* Glows */
+  --glow-indigo: 0 0 80px rgba(99, 102, 241, 0.35);
+  --glow-gold: 0 0 60px rgba(245, 158, 11, 0.25);
+  --glow-cyan: 0 0 60px rgba(6, 182, 212, 0.25);
+
+  /* Spacing */
+  --section-padding: clamp(5rem, 10vw, 10rem);
+  --content-max: 1280px;
+  --content-narrow: 720px;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────────── */
+/* Wrapped in @layer base so Tailwind utilities (p-*, m-*, gap-*, etc.) override it */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.4);
+  color: #fff;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* ─── Typography Scale ───────────────────────────────────────────────────────── */
+.text-display {
+  font-size: clamp(3.5rem, 9vw, 8.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.text-h1 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-size: clamp(1.75rem, 3.5vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.text-h3 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.text-body-lg {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.text-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ─── Utility Classes ────────────────────────────────────────────────────────── */
+.section-wrapper {
+  padding: var(--section-padding) 0;
+}
+
+.container {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+.container-narrow {
+  max-width: var(--content-narrow);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+/* ─── Glow Effects ───────────────────────────────────────────────────────────── */
+.glow-indigo {
+  box-shadow: var(--glow-indigo);
+}
+
+.glow-gold {
+  box-shadow: var(--glow-gold);
+}
+
+.glow-cyan {
+  box-shadow: var(--glow-cyan);
+}
+
+/* ─── Glass Card ─────────────────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(13, 13, 20, 0.8);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ─── Gradient Text ──────────────────────────────────────────────────────────── */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cyan {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Noise Texture ──────────────────────────────────────────────────────────── */
+.noise-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* ─── Animated Border ─────────────────────────────────────────────────────────  */
+.animated-border {
+  position: relative;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-primary);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.animated-border:hover::before {
+  opacity: 1;
+}
+
+/* ─── Section Label Line ─────────────────────────────────────────────────────── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-text-muted);
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+/* ─── Tag Pills ──────────────────────────────────────────────────────────────── */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  border-radius: 100px;
+  border: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.tag-pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* ─── Cursor Glow ────────────────────────────────────────────────────────────── */
+.cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* ─── Shimmer Animation ──────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(99, 102, 241, 0.15) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ─── Pulse Glow ─────────────────────────────────────────────────────────────── */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* ─── Dash Animation ─────────────────────────────────────────────────────────── */
+@keyframes dash-move {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* ─── Float Animation ────────────────────────────────────────────────────────── */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ─── Heatmap Cell ───────────────────────────────────────────────────────────── */
+.heatmap-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.3);
+  opacity: 1 !important;
+}
+
+/* ─── Nav dot indicator ──────────────────────────────────────────────────────── */
+.nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-subtle);
+  transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
+}
+
+/* ─── Orbit Animation ────────────────────────────────────────────────────────── */
+@keyframes orbit-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-medium {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-fast {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Typewriter cursor ──────────────────────────────────────────────────────── */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Responsive Helpers ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .text-display {
+    font-size: clamp(3rem, 12vw, 5rem);
+  }
+
+  .section-wrapper {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+  }
+}
